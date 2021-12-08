@@ -62,7 +62,7 @@ public class PersonDA {
                         tempEmpHourly.setHireDate(hireDate);
                         tempEmpHourly.setRate(rate);
                         tempEmpHourly.setAvgWeeklyHours(avgWeeklyHours);
-
+                        
                         persons.put(empID, tempEmpHourly);
                     }
                 } else {

@@ -31,8 +31,8 @@
                         <td>${person.value.employeeID}</td>
                         <td>${person.value.firstName} ${person.value.middleName} ${person.value.lastName}</td>
                         <td>${person.value.hireDate}</td>
-                        <td>${person.value.salary}</td>
-                        <td>${person.value.hireDate}</td>
+                        <td>${person.value.getClass().getName()}</td>
+                        <td>${person.value.calcYearlyCompensation()}</td>
                     </tr>
                 </c:forEach>
             </table>

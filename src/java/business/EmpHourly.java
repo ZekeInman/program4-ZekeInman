@@ -11,23 +11,25 @@ import java.time.LocalDate;
  *
  * @author fssco
  */
-public class EmpHourly extends Person{
+public class EmpHourly extends Person {
+
     private double rate;
     private double avgWeeklyHours;
-    
-    public EmpHourly() {}
-    
+
+    public EmpHourly() {
+    }
+
     public EmpHourly(String firstName, String middleName, String lastName, int employeeID, LocalDate birthDate, LocalDate hireDate, double rate, double avgWeeklyHours) {
         super(firstName, middleName, lastName, employeeID, birthDate, hireDate);
         this.rate = rate;
-        this.avgWeeklyHours= avgWeeklyHours;
+        this.avgWeeklyHours = avgWeeklyHours;
     }
-    
+
     //EDIT THIS
     @Override
-        public double calcYearlyCompensation() {
-        return rate * avgWeeklyHours * 51; 
-}
+    public double calcYearlyCompensation() {
+        return rate * avgWeeklyHours * 51;
+    }
 
     /**
      * @return the rate
@@ -56,5 +58,5 @@ public class EmpHourly extends Person{
     public void setAvgWeeklyHours(double avgWeeklyHours) {
         this.avgWeeklyHours = avgWeeklyHours;
     }
-    
+
 }

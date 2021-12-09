@@ -31,8 +31,29 @@
                         <td>${person.value.employeeID}</td>
                         <td>${person.value.firstName} ${person.value.middleName} ${person.value.lastName}</td>
                         <td>${person.value.hireDate}</td>
-                        <td>${person.value.getClass().getName()}</td>
-                        <td>${person.value.calcYearlyCompensation()}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${person.value.getClass().getName() == 'business.EmpSalary'}">
+                                    Salary
+                                </c:when>
+                                <c:when test="${person.value.getClass().getName() == 'business.EmpHourly'}">
+                                    Hourly
+                                </c:when>
+                                <c:otherwise>
+                                    None
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${person.value.calcYearlyCompensation() == 0.0}">
+                                    None
+                                </c:when>
+                                <c:otherwise>
+                                    ${person.value.getFormattedCompensation()}
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

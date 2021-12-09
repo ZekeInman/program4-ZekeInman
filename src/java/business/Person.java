@@ -6,36 +6,54 @@
 package business;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.Locale;
 
 /**
  *
  * @author fssco
  */
 public class Person implements Serializable {
+
     private String firstName;
     private String middleName;
     private String lastName;
     private int employeeID;
     private LocalDate birthDate;
     private LocalDate hireDate;
-    
-    public Person () {}
 
-    public Person (String firstName, String middleName, String lastName, int employeeID, LocalDate birthDate, LocalDate hireDate) {
-        this.firstName=firstName;
-        this.middleName=middleName;
-        this.lastName=lastName;
-        this.employeeID=employeeID;
-        this.birthDate=birthDate;
-        this.hireDate=hireDate;
+    public Person() {
     }
-    
+
+    public Person(String firstName, String middleName, String lastName, int employeeID, LocalDate birthDate, LocalDate hireDate) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.employeeID = employeeID;
+        this.birthDate = birthDate;
+        this.hireDate = hireDate;
+    }
+
     public double calcYearlyCompensation() {
-        return 0.0; 
-}
-    
-    
+        return 0.0;
+    }
+
+    public String getFormattedCompensation() {
+
+        String formattedComp = "";
+        double unformattedComp = 0.0;
+        NumberFormat numberFormatter;
+        unformattedComp = calcYearlyCompensation();
+
+        numberFormatter = NumberFormat.getNumberInstance(Locale.ENGLISH);
+        formattedComp = numberFormatter.format(unformattedComp);
+
+        formattedComp = "$" + formattedComp;
+
+        return formattedComp;
+    }
+
     /**
      * @return the firstName
      */
@@ -119,5 +137,5 @@ public class Person implements Serializable {
     public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
     }
-    
+
 }

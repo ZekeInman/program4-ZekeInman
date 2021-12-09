@@ -44,6 +44,8 @@ public class PeopleProcessor extends HttpServlet {
 
         LinkedHashMap<Integer, Person> persons = null;
 
+        //calcYearlyCompensation()
+        //double yearlyCost = calcYearlyCompensation();
         try {
             persons = PersonDA.selectAll();
         } catch (Exception e) {
